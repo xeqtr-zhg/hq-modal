@@ -1,0 +1,40 @@
+{
+  "name": "hq-modal",
+  "private": false,
+  "version": "0.0.1",
+  "type": "module",
+  "main": "./dist/hq-modal.cmj.js",
+  "module": "./dist/hq-modal.es.js",
+  "unpkg": "./dist/hq-modal.umd.js",
+  "style": "./dist/hq-modal.css",
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "modal"
+  ],
+  "author": "Sergey Panin <xeqtr.zhg@gmail.com> (https://hq-web.net/)",
+  "license": "GPL-3.0-or-later",
+  "exports": {
+    ".": {
+      "import": "./dist/hq-modal.es.js",
+      "require": "./dist/hq-modal.cmj.js"
+    },
+    "./style.css": "./dist/hq-modal.css"
+  },
+  "description": "A simple component of modal",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xeqtr-zhg/hq-modal"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "sass": "^1.89.1",
+    "typescript": "~5.8.3",
+    "vite": "^6.3.5"
+  }
+}
