@@ -13,5 +13,5 @@ module.exports = {
   },
   plugins: ['@typescript-eslint'],
   extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
-  rules: {},
+  rules: { '@typescript-eslint/explicit-function-return-type': 'error' },
 };
