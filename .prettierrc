@@ -1,7 +1,11 @@
 {
+  "semi": true,
   "singleQuote": true,
   "printWidth": 200,
+  "tabWidth": 2,
+  "bracketSpacing": true,
   "htmlWhitespaceSensitivity": "ignore",
   "bracketSameLine": true,
-  "singleAttributePerLine": false
+  "singleAttributePerLine": false,
+  "arrowParens": "always"
 }
