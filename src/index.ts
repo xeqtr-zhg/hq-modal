@@ -1,9 +1,28 @@
+interface HqModalOptions {
+  maxWidth?: string;
+  background?: string;
+  top?: string;
+  bottom?: string;
+  left?: string;
+  right?: string;
+}
+
 export default class HqModal {
   private dialog: HTMLDialogElement;
   private name: string;
+  private options: HqModalOptions;
 
-  constructor(name: string) {
+  constructor(name: string, options: HqModalOptions = {}) {
     this.name = name;
+    this.options = {
+      maxWidth: '500px',
+      background: 'rgba(0, 0, 0, 0.4)',
+      top: '0',
+      bottom: '0',
+      left: '0',
+      right: '0',
+      ...options,
+    };
     this.dialog = this.createDialog();
     this.transferContent();
     this.open();
@@ -76,15 +95,19 @@ export default class HqModal {
     style.innerHTML = `
     .hq-modal-${this.name} {
       box-sizing: border-box;
-      border: 1px solid #444;
-      max-width: 500px;
-      width: 100%;
-      padding: 1rem;
-      border-radius: 6px;
+      inset: unset;
+      top: ${this.options.bottom === '0' ? this.options.top : 'initial'};
+      bottom: ${this.options.top === '0' ? this.options.bottom : 'initial'};
+      right: ${this.options.left === '0' ? this.options.right : 'initial'};
+      left: ${this.options.right === '0' ? this.options.left : 'initial'};
+      border: none;
+      max-width: ${this.options.maxWidth};
+      width: 90%;
+      padding: initial;
     }
 
-    .hq-modal::backdrop {
-      background: rgba(0, 0, 0, 0.4);
+    .hq-modal-${this.name}::backdrop {
+      background: ${this.options.background};
     }
 
     .hq-modal-lock {
