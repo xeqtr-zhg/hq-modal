@@ -37,6 +37,8 @@ export default class HqModal {
   private open(): void {
     document.querySelectorAll(`[data-hq-modal-button="${this.name}"]`).forEach((el) => {
       el.addEventListener('click', () => {
+        const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
+        document.body.style.paddingRight = `${scrollBarWidth}px`;
         this.dialog.showModal();
         document.querySelector('body')?.classList.add('hq-modal-lock');
       });
@@ -46,6 +48,7 @@ export default class HqModal {
   private onClose(): void {
     this.dialog.addEventListener('close', () => {
       document.body.classList.remove('hq-modal-lock');
+      document.body.style.paddingRight = '';
     });
   }
 
