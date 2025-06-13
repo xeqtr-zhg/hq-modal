@@ -5,10 +5,13 @@ interface HqModalOptions {
   bottom?: string;
   left?: string;
   right?: string;
+  showButtonClose?: boolean;
 }
 
 export default class HqModal {
   private dialog: HTMLDialogElement;
+  private dialogContainer: HTMLDivElement;
+  private buttonClose: HTMLDivElement;
   private name: string;
   private options: HqModalOptions;
 
@@ -21,9 +24,12 @@ export default class HqModal {
       bottom: '0',
       left: '0',
       right: '0',
+      showButtonClose: false,
       ...options,
     };
     this.dialog = this.createDialog();
+    this.dialogContainer = this.createContainer();
+    this.buttonClose = this.createButtonClose();
     this.transferContent();
     this.open();
     this.closeOverlayClick();
@@ -34,9 +40,28 @@ export default class HqModal {
 
   private createDialog(): HTMLDialogElement {
     const dialog = document.createElement('dialog');
-    dialog.classList.add(`hq-modal-${this.name}`);
+    dialog.classList.add(`hq-modal`);
+    dialog.classList.add(`hq-modal--${this.name}`);
     dialog.setAttribute('data-hq-modal-block', this.name);
+
     return dialog;
+  }
+
+  private createContainer(): HTMLDivElement {
+    const divContainer = document.createElement('div');
+    divContainer.classList.add('hq-modal__container');
+    divContainer.classList.add(`hq-modal__container--${this.name}`);
+
+    return divContainer;
+  }
+
+  private createButtonClose(): HTMLDivElement {
+    const button = document.createElement('div');
+    button.classList.add('hq-modal__btn-close');
+    button.classList.add(`hq-modal__btn-close--${this.name}`);
+    button.addEventListener('click', () => this.dialog.close());
+
+    return button;
   }
 
   private transferContent(): void {
@@ -44,11 +69,17 @@ export default class HqModal {
 
     if (block) {
       while (block.firstChild) {
-        this.dialog.appendChild(block.firstChild);
+        this.dialogContainer.appendChild(block.firstChild);
       }
     }
 
     block?.remove();
+
+    this.dialog.appendChild(this.dialogContainer);
+
+    if (this.options.showButtonClose) {
+      this.dialog.appendChild(this.buttonClose);
+    }
 
     document.querySelector('body')?.appendChild(this.dialog);
   }
@@ -93,7 +124,16 @@ export default class HqModal {
   private inlineCss(): void {
     const style = document.createElement('style');
     style.innerHTML = `
-    .hq-modal-${this.name} {
+    .hq-modal {
+      overflow: visible;
+    }
+
+    .hq-modal__container {
+      overflow: auto;
+      max-height: 80vh;
+    }
+
+    .hq-modal--${this.name} {
       box-sizing: border-box;
       inset: unset;
       top: ${this.options.bottom === '0' ? this.options.top : 'initial'};
@@ -106,8 +146,28 @@ export default class HqModal {
       padding: initial;
     }
 
-    .hq-modal-${this.name}::backdrop {
+    .hq-modal--${this.name}::backdrop {
       background: ${this.options.background};
+    }
+
+    .hq-modal__btn-close {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+    }
+
+    .hq-modal__btn-close::before {
+      content: '';
+      width: 100%;
+      height: 100%;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23333'><path d='M2 2l12 12M14 2L2 14' stroke='%23333' stroke-width='2' stroke-linecap='round'/></svg>");
+      background-repeat: no-repeat;
     }
 
     .hq-modal-lock {
