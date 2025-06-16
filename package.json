@@ -11,7 +11,20 @@
     "dist"
   ],
   "keywords": [
-    "modal"
+    "modal",
+    "modal-window",
+    "modal-dialog",
+    "modal-manager",
+    "modal-controller",
+    "popup",
+    "popup-window",
+    "popup-manager",
+    "popup-modal",
+    "user-interface",
+    "ui",
+    "ui-component",
+    "dialog",
+    "window"
   ],
   "author": "Sergey Panin <xeqtr.zhg@gmail.com> (https://hq-web.net/)",
   "license": "GPL-3.0-or-later",
@@ -25,7 +38,7 @@
   "description": "A simple component of modal",
   "repository": {
     "type": "git",
-    "url": "https://github.com/xeqtr-zhg/hq-modal"
+    "url": "git+https://github.com/xeqtr-zhg/hq-modal.git"
   },
   "scripts": {
     "dev": "vite",
