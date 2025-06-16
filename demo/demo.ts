@@ -1,8 +1,9 @@
 import HqModal from '../src/index.ts';
 
-const one = new HqModal('one', {
+const one = new HqModal('one-test', {
   maxWidth: '400px',
-  background: 'red',
+  background: 'blue',
+  top: '100px',
   bottom: '10px',
   showButtonClose: true,
 });

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test - UMD</title>
+    <script src="https://unpkg.com/hq-modal@latest/dist/hq-modal.umd.js"></script>
+  </head>
+  <body>
+    <button data-hq-modal-button="one">btn</button>
+    <div data-hq-modal-block="one" hidden>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit exercitationem ullam asperiores eos velit sequi dolores incidunt. Doloremque eveniet facere consectetur aperiam quia id neque ut
+      tenetur autem molestias at, quam nemo. Ipsam, vitae est dolore corrupti veniam laborum. Facilis, enim, libero repudiandae illo harum minima delectus voluptas natus magnam unde ullam culpa rerum
+      accusamus veniam fugiat mollitia ducimus, modi laudantium consectetur? Sit dolores voluptatibus dolor voluptate nulla, dolorem explicabo molestias culpa vero ex ut porro dignissimos obcaecati
+      sequi nesciunt nihil voluptates quis. Molestias veritatis ratione quam repellendus maxime delectus quisquam, rem aut placeat obcaecati impedit fugiat nihil ea corrupti.
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const one = new HqModal('one', {
+          maxWidth: '700px',
+          background: 'pink',
+          top: '50px',
+          right: '50px',
+          showButtonClose: true,
+        });
+      });
+    </script>
+  </body>
+</html>
