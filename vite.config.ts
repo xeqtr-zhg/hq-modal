@@ -12,7 +12,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: './src/index.ts',
-      name: 'hq-modal',
+      name: 'HqModal',
       fileName: (format) => `hq-modal.${format}.js`,
       formats: ['es', 'cjs', 'umd'],
     },
