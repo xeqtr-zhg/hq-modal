@@ -27,7 +27,7 @@
     "window"
   ],
   "author": "Sergey Panin <xeqtr.zhg@gmail.com> (https://hq-web.net/)",
-  "license": "GPL-3.0-or-later",
+  "license": "MIT",
   "exports": {
     ".": {
       "import": "./dist/hq-modal.es.js",
