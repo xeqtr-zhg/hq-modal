@@ -183,4 +183,12 @@ export default class HqModal {
       this.dialog.appendChild(style);
     }
   }
+
+  public hide(): void {
+    this.dialog.close();
+  }
+
+  public show(): void {
+    this.dialog.showModal();
+  }
 }

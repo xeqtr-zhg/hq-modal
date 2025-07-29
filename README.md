@@ -1,6 +1,6 @@
 # hq-modal
 
-**Hq-Modal** is an exceptionally simple utility for managing and configuring modal windows on a web page. It helps you quickly set up and trigger modals.
+**Hq-modal** is an exceptionally simple utility for managing and configuring modal windows on a web page. It helps you quickly set up and trigger modals.
 
 The library allows you to:
 
@@ -20,7 +20,7 @@ The library allows you to:
 
 Several usage and installation options:
 
-### Option 1 – NPM
+##### Option 1 – NPM
 
 Install via npm:
 
@@ -28,7 +28,7 @@ Install via npm:
 npm install hq-modal --save-dev
 ```
 
-### Option 2 – Use from CDN
+##### Option 2 – Use from CDN
 
 ```html
 <script src="https://unpkg.com/hq-modal@latest/dist/hq-modal.umd.js"></script>
@@ -38,7 +38,7 @@ npm install hq-modal --save-dev
 
 ## Setup
 
-### 1 – Define the modal window
+##### 1 – Define the modal window
 
 In HTML, define the modal block using `data-hq-modal-block="test-name"` and `hidden`.
 
@@ -52,7 +52,7 @@ In HTML, define the modal block using `data-hq-modal-block="test-name"` and `hid
 </div>
 ```
 
-### 2 – Add modal trigger elements
+##### 2 – Add modal trigger elements
 
 To trigger the modal, assign the attribute `data-hq-modal-button="test-name"` to any element.
 
@@ -80,15 +80,15 @@ If you'd like to add extra close buttons inside the modal, assign the attribute 
 
 ## Usage
 
-Initialization and basic configuration:
+Initialization and basic configuration.
 
-### If using NPM, import the module:
+##### If using NPM, import the module:
 
 ```js
 import HqModal from 'hq-modal';
 ```
 
-### If using CDN, just initialize:
+##### If using CDN, just initialize:
 
 ## Initialization
 
@@ -127,6 +127,15 @@ const testName = new HqModal('test-name', {
 > ⚠️ Note: `top` and `bottom` should not be used together — choose one. Same applies to `left` and `right`.
 
 ---
+
+## Methods
+
+After initializing hq-modal, we get an instance of the modal (e.g., the testName variable). This instance provides useful methods that can be used when needed.
+
+| Method | Description            | Example         |
+| ------ | ---------------------- | --------------- |
+| show   | Shows the modal window | testName.show() |
+| hide   | Hides the modal window | testName.hide() |
 
 ## Requirements and Compatibility
 

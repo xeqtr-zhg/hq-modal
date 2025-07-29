@@ -7,4 +7,13 @@ const one = new HqModal('one-test', {
   bottom: '10px',
   showButtonClose: true,
 });
+
 const two = new HqModal('two');
+
+document.getElementById('test-metod-close')?.addEventListener('click', () => {
+  two.hide();
+});
+
+document.getElementById('test-metod-show')?.addEventListener('click', () => {
+  one.show();
+});
