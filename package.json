@@ -1,7 +1,7 @@
 {
   "name": "hq-modal",
   "private": false,
-  "version": "0.0.3",
+  "version": "0.0.4",
   "type": "module",
   "main": "./dist/hq-modal.cmj.js",
   "module": "./dist/hq-modal.es.js",
